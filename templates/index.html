@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset='UTF-8' />
+
+	<title>Drawing Table</title>
+
+	<link rel='stylesheet' href='{{ url_for('static',filename='css/colorpicker.css') }}' />
+	<link rel='stylesheet' href='{{ url_for('static',filename='css/style.css') }}' />
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+	<script type="text/javascript" src='{{ url_for('static',filename='js/colorpicker.js') }}'></script>
+	<script type="text/javascript" src='static/js/drawingtable.js'></script>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+		<h1>Draw Digit ( Predicted  :  <span id="answer"></span> )</h1>
+
+		<div id="controls">
+
+			<fieldset id="grid-size-wrap">
+				<legend>Grid Size</legend>
+
+				<button id="clear">Clear the Design</button>
+
+				<select id="gridSize">
+					<!-- <option value="20,20" selected>20 x 20</option> -->
+					<option value="28,28">28 x 28</option>
+
+				</select>
+				<br />
+				Changing size clears the design
+			</fieldset>
+
+
+
+
+			<fieldset id="html-wrap">
+				<legend>Get the array</legend>
+
+				<textarea id="the-html"></textarea>
+
+				<button id="get-html-button">Convert to 2d Array</button>
+				<button id="get-html-button" onclick="copy()">Copy it Now !</button>
+			</fieldset>
+
+		</div>
+
+		<div id="table-wrap">
+			<table id="drawing-table">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+</body><script>
+	function copy() {
+		// alert('asdf')
+	  var copyText = document.getElementById("the-html");
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999)
+	  document.execCommand("copy");
+	  alert("Copied the text: " );
+	}
+	</script>
+
+</html>
